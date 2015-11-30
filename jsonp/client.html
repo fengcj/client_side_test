@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Test Jsonp</title>
+	<script>
+		function callBack1(data){
+			console.log("in callBack1");
+			console.log(data);
+		}
+		function callBack2(data){
+			console.log("in callBack2");
+			console.log(data);
+		}
+
+		function onClick1(){
+			console.log("in onClick1");
+			var script = document.createElement("script");
+			script.type="text/javascript";
+			script.src="http://localhost:3000/jsonp?callBack1";
+			document.getElementsByTagName('head')[0].appendChild(script);
+		}
+
+
+		function onClick2(){
+			console.log("in onClick2");
+			var script = document.createElement("script");
+			script.type="text/javascript";
+			script.src="http://localhost:3000/jsonp?callBack2";
+			document.getElementsByTagName('head')[0].appendChild(script);
+		}
+	</script>
+</head>
+<body>
+	
+	<input type="button" value="callServer1" onclick="onClick1()"> <br> <br>
+	<input type="button" value="callServer2" onclick="onClick2()">
+
+</body>
+</html>
